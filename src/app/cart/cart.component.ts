@@ -10,7 +10,7 @@ import { Product } from '../products';
 })
 export class CartComponent implements OnInit {
   items = this.cartService.getItems();
-  checkoutForms = this.formBuilder.group({
+  checkoutForm = this.formBuilder.group({
     name: '',
     address: ''
   });
@@ -31,8 +31,11 @@ export class CartComponent implements OnInit {
 
   onSubmit() {
     this.items = this.cartService.clearCart();
-    window.alert('Your order has been submitted');//, this.checkoutForms.value);
-    this.checkoutForms.reset();
+    window.alert('Your order has been submitted: '
+      + this.checkoutForm.controls['name'].value
+      + ' - '
+      + this.checkoutForm.controls['address'].value);
+    this.checkoutForm.reset();
   }
 
 }
