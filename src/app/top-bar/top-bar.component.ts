@@ -14,7 +14,7 @@ export class TopBarComponent {
   }
 
   getItems() {
-    return this.cartService.getItems();
+    return this.cartService.getNumOfItems();
   }
 
 }
